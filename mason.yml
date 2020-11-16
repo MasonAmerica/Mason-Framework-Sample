@@ -1,0 +1,7 @@
+os:
+  name: mason-framework-sample
+  version: latest
+apps:
+  - name: Mason Framework Sample App
+    package_name: com.mason.example.framework
+    version_code: latest

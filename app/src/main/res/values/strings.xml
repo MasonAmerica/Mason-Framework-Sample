@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Mason Framework Sample</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Mason Framework SDK</string>
+    <string name="nav_header_subtitle">support@bymason.com</string>
+    <string name="nav_header_desc">Mason Framework SDK navigation header</string>
+    <string name="version">2.11.0</string>
+
+    <!-- Menu navigation -->
+    <string name="menu_alarm">Alarm</string>
+    <string name="menu_bars">Bars</string>
+
+    <!-- Alarm Fragment -->
+    <string name="alarm_manager_set_time">Date &amp; Time</string>
+    <string name="alarm_manager_set_time_description">Set device time</string>
+<!--    <string name="alarm_manager_set_time_button">Change</string>-->
+    <string name="alarm_manager_time_change_amount">1 hour</string>
+
+    <string name="alarm_manager_set_timezone">Timezone</string>
+    <string name="alarm_manager_set_timezone_description">Set device timezone</string>
+    <string name="alarm_manager_set_timezone_america">America/Los_Angeles</string>
+    <string name="alarm_manager_set_timezone_asia">Asia/Taipei</string>
+
+    <!-- Bars Fragment -->
+    <string name="bars_manager_enable_navigation_bar">Enable Navigation Bar</string>
+    <string name="bars_manager_enable_navigation_bar_description">Enable or disable the use of the navigation bar</string>
+    <string name="bars_manager_enable_navigation_bar_button">Enable</string>
+    <string name="bars_manager_disable_navigation_bar_button">Disable</string>
+
+    <string name="bars_manager_enable_status_bar">Enable Status Bar</string>
+    <string name="bars_manager_enable_status_bar_description">Enable or disable the use of the system status bar</string>
+    <string name="bars_manager_disable_status_bar_button">Disable</string>
+    <string name="bars_manager_enable_status_bar_button">Enable</string>
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_alarm_manager" >
+
+    <fragment
+        android:id="@+id/nav_alarm_manager"
+        android:name="com.mason.example.framework.ui.alarm.AlarmManagerFragment"
+        android:label="@string/menu_alarm"
+        tools:layout="@layout/fragment_alarm_manager" />
+
+    <fragment
+        android:id="@+id/nav_bars_manager"
+        android:name="com.mason.example.framework.ui.bars.BarsManagerFragment"
+        android:label="@string/menu_bars"
+        tools:layout="@layout/fragment_bars_manager" />
+</navigation>
