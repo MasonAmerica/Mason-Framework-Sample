@@ -10,7 +10,12 @@
             android:title="@string/menu_alarm" />
         <item
             android:id="@+id/nav_bars_manager"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_bar"
             android:title="@string/menu_bars" />
+        <item
+            android:id="@+id/nav_nfc_adapter"
+            android:icon="@drawable/ic_menu_nfc"
+            android:title="@string/menu_nfc" />
+
     </group>
 </menu>

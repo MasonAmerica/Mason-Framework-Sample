@@ -16,4 +16,11 @@
         android:name="com.mason.example.framework.ui.bars.BarsManagerFragment"
         android:label="@string/menu_bars"
         tools:layout="@layout/fragment_bars_manager" />
+
+    <fragment
+        android:id="@+id/nav_nfc_adapter"
+        android:name="com.mason.example.framework.ui.nfc.NfcAdapterFragment"
+        android:label="@string/menu_nfc"
+        tools:layout="@layout/fragment_nfc_adapter" />
+
 </navigation>
