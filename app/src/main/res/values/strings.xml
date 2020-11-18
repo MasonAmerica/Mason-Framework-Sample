@@ -11,6 +11,7 @@
     <string name="menu_alarm">Alarm</string>
     <string name="menu_bars">Bars</string>
     <string name="menu_nfc">NFC</string>
+    <string name="menu_power">Power</string>
 
     <!-- Alarm Fragment -->
     <string name="alarm_manager_set_time">Date &amp; Time</string>
@@ -41,5 +42,16 @@
     <string name="nfc_status_label">NFC Status: </string>
     <string name="nfc_status_enabled">Enable</string>
     <string name="nfc_status_disabled">Disable</string>
+
+    <!-- Power Fragment -->
+    <string name="power_manager_reboot">Reboot</string>
+    <string name="power_manager_reboot_description">Reboot the device</string>
+    <string name="power_manager_reboot_button">Reboot</string>
+    <string name="power_manager_shutdown">Shutdown</string>
+    <string name="power_manager_shutdown_description">Shutdown the device</string>
+    <string name="power_manager_shutdown_button">Shutdown</string>
+    <string name="power_manager_sleep">Sleep</string>
+    <string name="power_manager_sleep_description">Put the device to sleep</string>
+    <string name="power_manager_sleep_button">Sleep</string>
 
 </resources>

@@ -16,6 +16,9 @@
             android:id="@+id/nav_nfc_adapter"
             android:icon="@drawable/ic_menu_nfc"
             android:title="@string/menu_nfc" />
-
+        <item
+            android:id="@+id/nav_power_manager"
+            android:icon="@drawable/ic_menu_power"
+            android:title="@string/menu_power" />
     </group>
 </menu>

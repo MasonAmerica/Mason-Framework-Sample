@@ -23,4 +23,10 @@
         android:label="@string/menu_nfc"
         tools:layout="@layout/fragment_nfc_adapter" />
 
+    <fragment
+        android:id="@+id/nav_power_manager"
+        android:name="com.mason.example.framework.ui.power.PowerManagerFragment"
+        android:label="@string/menu_power"
+        tools:layout="@layout/fragment_power_manager" />
+
 </navigation>
