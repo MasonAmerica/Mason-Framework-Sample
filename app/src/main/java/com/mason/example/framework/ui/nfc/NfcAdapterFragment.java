@@ -1,15 +1,22 @@
 package com.mason.example.framework.ui.nfc;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcManager;
+import android.nfc.tech.NfcA;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +27,10 @@ import androidx.fragment.app.FragmentManager;
 import com.mason.example.framework.R;
 import com.mason.example.framework.util.alert.SecurityExceptionFragment;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 import masonamerica.platform.MasonFramework;
 import masonamerica.platform.NfcAdapterPrivileged;
 
@@ -29,12 +40,15 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
 
     @SuppressWarnings("FieldCanBeLocal")
     private Button enableNfcButton, disableNfcButton;
-    private TextView nfcStatus;
+    public TextView nfcStatus;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nfc_adapter, container, false);
+
+        IntentFilter filter = new IntentFilter(NfcAdapter.ACTION_ADAPTER_STATE_CHANGED);
+        getContext().registerReceiver(nfcReceiver, filter);
 
         nfc = MasonFramework.get(getContext(), NfcAdapterPrivileged.class);
 
@@ -48,9 +62,9 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
         if (!isNfcAvailable()) {
             enableNfcButton.setEnabled(false);
             disableNfcButton.setEnabled(false);
-            setNfcStatus(false);
+            updateNfcState(NfcAdapter.STATE_OFF);
         } else {
-            updateNfcState();
+            updateNfcState(checkNfcState());
         }
 
         return rootView;
@@ -65,7 +79,6 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
             } else if (id == R.id.nfc_adapter_disable_nfc_button) {
                 nfc.disable();
             }
-            updateNfcState();
         } catch (SecurityException e) {
             FragmentManager fm = getParentFragmentManager();
             SecurityExceptionFragment alertDialog = SecurityExceptionFragment.newInstance();
@@ -73,17 +86,46 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
         }
     }
 
-    private void updateNfcState() {
-        try {
-            Thread.sleep(1000); // 1 seconds delay
-            if (isNfcEnabled()) {
-                setNfcStatus(true);
-            } else {
-                setNfcStatus(false);
+    // Handle NFC module state changes
+    private final BroadcastReceiver nfcReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "nfcReceiver called!!");
+            final String action = intent.getAction();
+
+            if (action.equals(NfcAdapter.ACTION_ADAPTER_STATE_CHANGED)) {
+                final int state = intent.getIntExtra(NfcAdapter.EXTRA_ADAPTER_STATE, NfcAdapter.STATE_OFF);
+                updateNfcState(state);
             }
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-            Log.d(TAG, "Updating NFC State task interrupted");
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getContext().unregisterReceiver(nfcReceiver);
+    }
+
+    private void updateNfcState(int state) {
+        if (isNfcAvailable()) {
+            switch (state) {
+                case NfcAdapter.STATE_OFF:
+                    nfcStatus.setText(R.string.nfc_state_off);
+                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
+                    break;
+                case NfcAdapter.STATE_TURNING_OFF:
+                    nfcStatus.setText(R.string.nfc_state_turning_off);
+                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
+                    break;
+                case NfcAdapter.STATE_ON:
+                    nfcStatus.setText(R.string.nfc_state_on);
+                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
+                    break;
+                case NfcAdapter.STATE_TURNING_ON:
+                    nfcStatus.setText(R.string.nfc_state_turning_on);
+                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
+                    break;
+            }
         }
     }
 
@@ -96,24 +138,12 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
         return adapter != null;
     }
 
-    private boolean isNfcEnabled() {
-        boolean result = false;
+    private int checkNfcState() {
         NfcManager nfcManager = (NfcManager) requireContext().getSystemService(Context.NFC_SERVICE);
         NfcAdapter adapter = null;
         if (nfcManager != null) {
             adapter = nfcManager.getDefaultAdapter();
-            result = adapter.isEnabled();
         }
-        return result;
-    }
-
-    private void setNfcStatus(boolean enabled) {
-        if (enabled) {
-            nfcStatus.setText(R.string.nfc_status_enabled);
-            nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
-        } else {
-            nfcStatus.setText(R.string.nfc_status_disabled);
-            nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
-        }
+        return (adapter.isEnabled()) ? NfcAdapter.STATE_ON : NfcAdapter.STATE_OFF;
     }
 }

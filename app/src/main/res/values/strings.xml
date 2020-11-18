@@ -39,9 +39,13 @@
     <string name="nfc_adapter_set_nfc_description">Enable or Disable NFC Hardware</string>
     <string name="nfc_adapter_enable_nfc_button">Enable</string>
     <string name="nfc_adapter_disable_nfc_button">Disable</string>
-    <string name="nfc_status_label">NFC Status: </string>
+    <string name="nfc_status_label">Status: </string>
     <string name="nfc_status_enabled">Enable</string>
     <string name="nfc_status_disabled">Disable</string>
+    <string name="nfc_state_turning_on">TURNING ON</string>
+    <string name="nfc_state_on">NFC ON</string>
+    <string name="nfc_state_turning_off">TURNING OFF</string>
+    <string name="nfc_state_off">NFC OFF</string>
 
     <!-- Power Fragment -->
     <string name="power_manager_reboot">Reboot</string>
@@ -53,5 +57,4 @@
     <string name="power_manager_sleep">Sleep</string>
     <string name="power_manager_sleep_description">Put the device to sleep</string>
     <string name="power_manager_sleep_button">Sleep</string>
-
 </resources>
