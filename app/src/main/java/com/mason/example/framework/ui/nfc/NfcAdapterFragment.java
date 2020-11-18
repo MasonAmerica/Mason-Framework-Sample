@@ -36,6 +36,7 @@ import masonamerica.platform.NfcAdapterPrivileged;
 
 public class NfcAdapterFragment extends Fragment implements View.OnClickListener{
     private static final String TAG = "NfcAdapterFragment";
+    private static final int STATE_UNKNOWN = 0;
     private NfcAdapterPrivileged nfc;
 
     @SuppressWarnings("FieldCanBeLocal")
@@ -62,7 +63,7 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
         if (!isNfcAvailable()) {
             enableNfcButton.setEnabled(false);
             disableNfcButton.setEnabled(false);
-            updateNfcState(NfcAdapter.STATE_OFF);
+            updateNfcState(STATE_UNKNOWN);
         } else {
             updateNfcState(checkNfcState());
         }
@@ -90,7 +91,6 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
     private final BroadcastReceiver nfcReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "nfcReceiver called!!");
             final String action = intent.getAction();
 
             if (action.equals(NfcAdapter.ACTION_ADAPTER_STATE_CHANGED)) {
@@ -107,25 +107,26 @@ public class NfcAdapterFragment extends Fragment implements View.OnClickListener
     }
 
     private void updateNfcState(int state) {
-        if (isNfcAvailable()) {
-            switch (state) {
-                case NfcAdapter.STATE_OFF:
-                    nfcStatus.setText(R.string.nfc_state_off);
-                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
-                    break;
-                case NfcAdapter.STATE_TURNING_OFF:
-                    nfcStatus.setText(R.string.nfc_state_turning_off);
-                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
-                    break;
-                case NfcAdapter.STATE_ON:
-                    nfcStatus.setText(R.string.nfc_state_on);
-                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
-                    break;
-                case NfcAdapter.STATE_TURNING_ON:
-                    nfcStatus.setText(R.string.nfc_state_turning_on);
-                    nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
-                    break;
-            }
+        switch (state) {
+            case NfcAdapter.STATE_OFF:
+                nfcStatus.setText(R.string.nfc_state_off);
+                nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
+                break;
+            case NfcAdapter.STATE_TURNING_ON:
+                nfcStatus.setText(R.string.nfc_state_turning_on);
+                nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
+                break;
+            case NfcAdapter.STATE_ON:
+                nfcStatus.setText(R.string.nfc_state_on);
+                nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.green));
+                break;
+            case NfcAdapter.STATE_TURNING_OFF:
+                nfcStatus.setText(R.string.nfc_state_turning_off);
+                nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red));
+                break;
+            default:
+                nfcStatus.setText(R.string.nfc_state_unknown);
+                nfcStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray));
         }
     }
 

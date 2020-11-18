@@ -42,6 +42,7 @@
     <string name="nfc_status_label">Status: </string>
     <string name="nfc_status_enabled">Enable</string>
     <string name="nfc_status_disabled">Disable</string>
+    <string name="nfc_state_unknown">UNKNOWN</string>
     <string name="nfc_state_turning_on">TURNING ON</string>
     <string name="nfc_state_on">NFC ON</string>
     <string name="nfc_state_turning_off">TURNING OFF</string>
