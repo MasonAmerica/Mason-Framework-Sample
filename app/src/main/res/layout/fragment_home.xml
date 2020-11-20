@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f7f7f6"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="top"
+    tools:context="com.mason.example.framework.ui.home.HomeFragment">
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_attribute_header"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_value_header"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_customer_id_key"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="1dp"/>
+
+            <TextView
+                android:id="@+id/mason_customer_id_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="start"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_device_id"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="1dp"/>
+
+            <TextView
+                android:id="@+id/mason_device_id_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="start"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_product_id"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="1dp"/>
+
+            <TextView
+                android:id="@+id/mason_product_id_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="start"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_project_id"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="1dp"/>
+
+            <TextView
+                android:id="@+id/mason_project_id_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="start"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/mason_project_version"
+                android:layout_weight="@integer/first_column_weight"
+                android:gravity="center"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginHorizontal="1dp"/>
+
+            <TextView
+                android:id="@+id/mason_project_version_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/second_column_weight"
+                android:gravity="start"
+                android:background="@color/white"
+                android:padding="8dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

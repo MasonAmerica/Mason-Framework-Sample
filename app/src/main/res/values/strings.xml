@@ -8,10 +8,20 @@
     <string name="version">2.11.0</string>
 
     <!-- Menu navigation -->
+    <string name="menu_home">Home</string>
     <string name="menu_alarm">Alarm</string>
     <string name="menu_bars">Bars</string>
     <string name="menu_nfc">NFC</string>
     <string name="menu_power">Power</string>
+
+    <!-- Home Fragment -->
+    <string name="mason_customer_id_key">Customer ID</string>
+    <string name="mason_attribute_header">Attribute</string>
+    <string name="mason_value_header">Value</string>
+    <string name="mason_device_id">Device Model</string>
+    <string name="mason_product_id">Product ID</string>
+    <string name="mason_project_id">Project ID</string>
+    <string name="mason_project_version">Project Version</string>
 
     <!-- Alarm Fragment -->
     <string name="alarm_manager_set_time">Date &amp; Time</string>
