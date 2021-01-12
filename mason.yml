@@ -1,6 +1,9 @@
 os:
   name: mason-framework-sample
   version: latest
+  configurations:
+    mason-fota:
+      config_install_prompt_package: com.mason.example.framework
 apps:
   - name: Mason Framework Sample App
     package_name: com.mason.example.framework

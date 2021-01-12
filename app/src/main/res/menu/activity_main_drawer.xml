@@ -24,5 +24,11 @@
             android:id="@+id/nav_power_manager"
             android:icon="@drawable/ic_menu_power"
             android:title="@string/menu_power" />
+
+        <item
+            android:icon="@drawable/ic_menu_fota"
+            android:id="@+id/nav_fota_manager"
+            android:title="@string/menu_fota"/>
+
     </group>
 </menu>

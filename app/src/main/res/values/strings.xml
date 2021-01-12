@@ -13,6 +13,7 @@
     <string name="menu_bars">Bars</string>
     <string name="menu_nfc">NFC</string>
     <string name="menu_power">Power</string>
+    <string name="menu_fota">FOTA</string>
 
     <!-- Home Fragment -->
     <string name="mason_customer_id_key">Customer ID</string>
@@ -68,4 +69,9 @@
     <string name="power_manager_sleep">Sleep</string>
     <string name="power_manager_sleep_description">Put the device to sleep</string>
     <string name="power_manager_sleep_button">Sleep</string>
+
+    <!-- Fota Fragment-->
+    <string name="fota_manager_install">Firmware Over-The-Air (FOTA) Install</string>
+    <string name="fota_manager_install_button">Install</string>
+    <string name="fota_manager_install_description">"FOTA updates can be handled by an application if the app's package_name is specified as the value for config_install_prompt_package. However, if the configuration is not set then the normal configured FOTA update behavior will occur."</string>
 </resources>

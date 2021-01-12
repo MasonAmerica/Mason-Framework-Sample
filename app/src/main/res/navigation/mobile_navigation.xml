@@ -35,4 +35,10 @@
         android:label="@string/menu_power"
         tools:layout="@layout/fragment_power_manager" />
 
+    <fragment
+        android:id="@id/nav_fota_manager"
+        android:name="com.mason.example.framework.ui.fota.FotaManagerFragment"
+        android:label="Fota"
+        tools:layout="@layout/fragment_fota_manager" />
+
 </navigation>
