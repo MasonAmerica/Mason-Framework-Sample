@@ -1,7 +1,4 @@
 # Mason Framework Sample
-
-![Mason Framework SDK Sample App](https://gph.is/g/E1XqM71)
-
 ## How to use
 1. Provision device
 1. Create a project
