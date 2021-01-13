@@ -1,4 +1,7 @@
 # Mason Framework Sample
+
+![](demo.gif)
+
 ## How to use
 1. Provision device
 1. Create a project
