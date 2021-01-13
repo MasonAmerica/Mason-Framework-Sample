@@ -1,6 +1,6 @@
 # Mason Framework Sample
 
-![](demo.gif =240x480)
+![](demo.gif)
 
 ## How to use
 1. Provision device
